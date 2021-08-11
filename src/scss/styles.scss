@@ -1,8 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Cherry+Cream+Soda&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap");
+@import "_fonts";
 
 * {
   box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 .nav {
@@ -49,7 +52,7 @@
 .cover {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(4, 100vh);
+  grid-template-rows: repeat(1, 100vh);
   .cover__image {
     background-image: url("https://tolv.dk/wp-content/uploads/2020/11/home_kitsune-2-1040x1300.jpg");
     background-size: cover;
@@ -61,20 +64,79 @@
     justify-content: center;
     align-items: center;
     p {
-      font-family: "Playfair Display", serif;
-      font-size: 50px;
-      font-weight: 700;
-      line-height: 1.3;
-      margin-bottom: 30px;
+      @extend %main;
       padding: 0 13%;
-      text-align: center;
     }
     .small-text-container {
       font-size: 15px;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
         Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-      span {
+      a {
         color: orangered;
+        &:nth-child(odd) {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+
+.banner {
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #efcb56;
+  padding: 0 20%;
+  h2 {
+    @extend %main;
+  }
+  p {
+    font-family: "Playfair Display", serif;
+    line-height: 1.3;
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+  span {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    a {
+      color: orangered;
+      text-decoration: underline;
+      font-weight: 700;
+    }
+  }
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 45vh);
+  .category {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h5 {
+      z-index: 1;
+    }
+    &:nth-child(1),
+    &:nth-child(5),
+    &:nth-child(7),
+    &:nth-child(10) {
+      grid-column: span 2;
+    }
+    &:nth-child(1) {
+      background-image: url(https://tolv.dk/wp-content/uploads/2019/07/Cherry-Sofa-Lookbook-3-web@2x-1.jpg);
+      background-position: right 35% bottom 20%;
+      color: transparent;
+      &:hover {
+        opacity: 0.5;
+        color: black;
       }
     }
   }
